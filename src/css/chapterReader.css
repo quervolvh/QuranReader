@@ -1,0 +1,10 @@
+.titleChapter{
+    font-size: 20px;
+    display: flex;
+    justify-content: space-around;
+    color: var(--ayah-number-color);
+    font-weight: 600;
+}
+.ChapterReader{
+    padding-top: 80px;
+}

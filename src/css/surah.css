@@ -1,0 +1,25 @@
+.Surah{
+    margin-left: 16px;
+    font-size: 18px;
+    padding: 0px 20px;
+    padding-bottom: 10px;
+    margin-bottom: 4px;
+    transition: 0.4s ease;
+}
+.Surah:hover{
+    border-radius: 10px;
+    background: #cbca0c7c;
+}
+.Surah .title p{
+    color: var(--surah-color);
+}
+.ayahs{
+    color: var(--ayah-number-color);
+}
+.arabic_title{
+    font-size: 20px;
+    color: var(--arabic-text-color);
+    position: absolute;
+    right: 25px;
+    margin-top: 20px;
+}

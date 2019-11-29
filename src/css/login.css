@@ -1,0 +1,52 @@
+.input_text{
+	height: 50px;
+    width: 300px;
+    border: var(--border-color);
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.login_wrapper{
+	margin: 5px;
+}
+#Login{
+	display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    padding-top: 100px;
+    margin-top: 0px;
+}
+#login_div{
+    border-radius: 10px;
+    box-shadow: var(--shadow-color);
+    padding: 20px;
+}
+.button_des{
+	height: 60px;
+    width: 145px;
+    border: none;
+    background: black;
+    padding-left: 10px;
+    color: white;
+    padding-right: 10px;
+    margin-top: 15px;
+    text-align: left;
+}
+input:focus, .button_des:focus{
+	outline:none;
+}
+.pic_Left{
+    background-image: url(../images/pngtube.com-muslim-png-967747.png);
+    height: 449px;
+    background-size: contain;
+    position: absolute;
+    width: 240px;
+    right: 0;
+    bottom: 0;
+    background-repeat: no-repeat;
+}
+.optB{
+    width: max-content;
+    margin-left: 5px;
+    background: white;
+    color: #464646;
+}

@@ -1,0 +1,24 @@
+.ayah{
+    margin-left: 16px;
+    font-size: 18px;
+    padding: 0px 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #b9d0ff7a;
+    margin-bottom: 4px;
+    width: 90%;
+}
+.ayah_transliteration{
+    color: green;
+    font-size: 22px;
+}
+.title p{
+    line-height: 2.2em;
+}
+.arabic{
+    color: var(--arabic-text-color);
+}
+.arabic p{
+    width: 50%;
+    font-size: 25px;
+    margin-bottom: 0;
+}
