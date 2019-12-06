@@ -50,3 +50,11 @@ input:focus, .button_des:focus{
     background: white;
     color: #464646;
 }
+@media only screen and (max-width:700px){
+    .pic_Left{
+        display: none;
+    }
+    #search{
+        display: none !important;
+    }
+}
