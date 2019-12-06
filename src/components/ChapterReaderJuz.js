@@ -4,7 +4,7 @@ import Ayah from '../components/Ayah';
 
 
 export function ChapterReaderJuz(props) {
-    const style = {height: '50px', position: 'absolute', marginTop: '-50px'}
+    const style = {height: '50px', position: 'absolute', marginTop: '0px'}
     const { transliteration, arabic, juz } = props;
     return (
         <div>

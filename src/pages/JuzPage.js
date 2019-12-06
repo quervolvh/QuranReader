@@ -3,6 +3,7 @@ import Filter from '../components/filter';
 import Holder from '../components/Holder';
 import { Link } from "react-router-dom";
 import { handleClick } from "../actions/events";
+import Header from '../components/Header';
 
 export class JuzPage extends Component {
     constructor(props){
@@ -27,7 +28,7 @@ export class JuzPage extends Component {
         }
         return (
             <div>
-                <Filter visibility={this.state.show} onClick={() => this.handleClick()}/>
+                <Header/>
                 <div id='holderDiv'>
                     {holders}
                 </div>

@@ -52,7 +52,6 @@ export class HomePage extends Component {
     return (
       <div>
         <Header onChange={this.handleChange} visibility={this.state.show} onClick={() => this.handleClick()} />
-
         <div id='HomePageSurahs'>
           {this.state.surah.map(surah =>
             <Surah key={surah.number} surah={surah} />)}

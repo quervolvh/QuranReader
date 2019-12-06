@@ -5,6 +5,7 @@ import '../css/header.css';
 import '../css/filter.css';
 import '../css/chapterReader.css';
 import ChapterReaderJuz from '../components/ChapterReaderJuz';
+import Header from '../components/Header';
 
 export class JuzReader extends Component {
     state = {
@@ -40,7 +41,8 @@ export class JuzReader extends Component {
 
         return (
             <div>
-                {this.state.error === true ? (<div id='load'> Error </div>) :
+                <Header />
+                {this.state.error === true ? (<div id='load'> <div id='error_div'></div> <div> ERROR </div> </div>) :
                 this.state.juz.length === 0 ? (<div id='load'><div id='loader'/></div>) : (<ChapterReaderJuz juz={this.state.juz} arabic={this.state.arabic} transliteration={this.state.transliteration} />)}
             </div>
         );

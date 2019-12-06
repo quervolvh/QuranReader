@@ -1,5 +1,8 @@
 import React from 'react';
 import { makeStyles, fade } from '@material-ui/core/styles';
+import { Link } from 'react-router-dom';
+import Brightness4Icon from '@material-ui/icons/Brightness4';
+import Brightness5Icon from '@material-ui/icons/Brightness5';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -33,20 +36,11 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-function RightSide(pather) {
-    const { path } = pather;
-    console.log(path + '  of live');
-    if (path !== '/' && path !== '/login' && path !== '/register') {
-        console.log('came here.. phrasing')
-        return (<div className='logout'>
-            <button className='button_des_header'> logout </button>
-        </div>);
-    } else {
-        console.log('didnt cum here..  phrasing')
-        return (<div></div>);
+function a() {
+    switch (a) {
+        case 1:
     }
 }
-
 function Backstyle(pather) {
     const path = pather;
     if (path !== '/' && path !== '/login' && path !== '/register' && path !== '/home') {
@@ -56,21 +50,6 @@ function Backstyle(pather) {
     }
 }
 
-state = {
-    mode: 'light'
-  }
-
-  handleMode = (event) =>{
-
-    if(this.state.mode === 'light'){
-      document.documentElement.setAttribute('data-theme','dark');
-      this.setState({mode: 'dark'});
-    }else{
-      document.documentElement.setAttribute('data-theme','light');
-      this.setState({mode: 'light'});
-    }
-  }
-
 export function Header(props) {
     const classes = useStyles();
     let { path } = useRouteMatch();
@@ -79,13 +58,25 @@ export function Header(props) {
     if (path === '/login') style = { placeContent: 'center' };
     if (path === '/register') style = { placeContent: 'center' };
     let history = useHistory();
+
+    const searchStyle = (part) =>{
+        if (part === "/home"){
+            return {display: 'flex'};
+        }else{
+            return {display: 'none'};
+        }
+    };
+
     const [state, setState] = React.useState({
         top: false,
         left: false,
         bottom: false,
         right: false,
     });
-    const [mode, setMode] = React.useState('light');
+    const [mode, setMode] = React.useState({
+        icon: <Brightness4Icon />,
+        theme: 'light'
+    });
 
     const toggleDrawer = (side, open) => event => {
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -93,7 +84,7 @@ export function Header(props) {
         }
         setState({ ...state, [side]: open });
     };
-
+    const Linklist = [`/home`,`/juzPage`,`/ayahPage`];
     const sideList = side => (
         <div
             className={classes.list}
@@ -103,39 +94,32 @@ export function Header(props) {
         >
             <List>
                 {['Chapters', 'Juzs', 'Ayahs',].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItem>
+                    <Link to={`${Linklist[index]}`}>
+                        <ListItem button key={text}>
+                            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+                            <ListItemText primary={text} />
+                        </ListItem>
+                    </Link>
                 ))}
             </List>
             <Divider />
         </div>
     );
 
-    const handleMode = (event) =>{
+    const handleMode = (event) => {
 
-        if(this.state.mode === 'light'){
-          document.documentElement.setAttribute('data-theme','dark');
-          this.setState({mode: 'dark'});
-        }else{
-          document.documentElement.setAttribute('data-theme','light');
-          this.setState({mode: 'light'});
+        if (mode.theme === 'light') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            setMode({ theme: 'dark', icon: <Brightness5Icon /> });
+        } else {
+            document.documentElement.setAttribute('data-theme', 'light');
+            setMode({ theme: 'light', icon: <Brightness4Icon /> });
         }
-      }
+    }
 
 
 
     return (
-        // <div id="Header" style={style}>
-        // <div className='back' style={Backstyle(path)}>
-        //     <div className='backButton' onClick={history.goBack} />
-        // </div>
-        //     <p> QuranReader</p>
-        //     <div className='top_right'>
-        //         < RightSide path={path} />
-        //     </div>
-        // </div>
         <div>
             <AppBar position="static">
                 <Toolbar variant="dense">
@@ -146,7 +130,7 @@ export function Header(props) {
                         QuranReader
                 </Typography>
 
-                    <div id='search' onChange={props.onChange}>
+                    <div id='search' onChange={props.onChange} style={searchStyle(path)}>
                         <div id='search_icon'></div>
                         <input id='count_search' type='class' placeholder='search for a Surah' />
                     </div>
@@ -157,7 +141,7 @@ export function Header(props) {
 
                     <div id='mode' onClick={handleMode}>
                         <div id='mode_icon'></div>
-                        <p> {mode} </p>
+                        <p> {mode.icon} </p>
                     </div>
 
 

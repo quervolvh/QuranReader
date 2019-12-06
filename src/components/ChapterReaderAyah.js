@@ -31,17 +31,12 @@ export class ChapterReaderAyah extends Component {
         // console.log(this.state.transliteration);
     }
 
-    componentWillUnmount() {
-
-    }
-
-
     render() {
 
         return (
             <div>
                 <Header />
-                {this.state.error === true ? (<div id='load'> Error </div>) :
+                {this.state.error === true ? (<div id='load'> <div id='error_div'></div> <div> ERROR </div> </div>) :
                     this.state.ayah.length === 0 ? (<div id='load'><div id='loader' /></div>) : (<AyahReader ayah={this.state.ayah} transliteration={this.state.transliteration} arabic={this.state.arabic} />)}
             </div>
         );

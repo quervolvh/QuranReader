@@ -20,30 +20,6 @@ import { createBrowserHistory } from "history";
 const history = createBrowserHistory();
 
 class App extends Component {
-  constructor(props){
-    super(props);
-    this.handleMode = this.handleMode.bind(this);
-  }
-  state = {
-    mode: 'light'
-  }
-
-  handleMode = (event) =>{
-
-    if(this.state.mode === 'light'){
-      document.documentElement.setAttribute('data-theme','dark');
-      this.setState({mode: 'dark'});
-    }else{
-      document.documentElement.setAttribute('data-theme','light');
-      this.setState({mode: 'light'});
-    }
-  }
-
-  A (){
-    return <div> <p> aaaa </p> </div>
-  }
-
-
   render() {
     return (
       <Router history={history}>
@@ -56,7 +32,7 @@ class App extends Component {
           <Route exact path="/juzPage" component={JuzPage}/>
           <Route exact path="/JuzReader/:juz" component={JuzReader}/>
           <Route exact path="/ayahPage" component={AyahSelectPage}/>
-          <Route exact path="/ayahPage" component={AyahPage}/>
+          {/* <Route exact path="/ayahPage" component={AyahPage}/> */}
           <Route exact path="/ayahPage/:ayah" component={ChapterReaderAyah}/>
         </Switch>
       </Router>

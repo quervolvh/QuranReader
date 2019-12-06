@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import AyahBox from '../components/AyahBox';
 import Filter from '../components/filter';
 import '../css/header.css';
-import { handleClick } from '../actions/events'
+import { handleClick } from '../actions/events';
+import { Header } from '../components/Header';
 
 export class AyahPage extends Component{
     constructor(props){
@@ -16,7 +17,7 @@ export class AyahPage extends Component{
     render() {
         return (
             <div>
-                <Filter visibility={this.state.show} onClick={() => this.handleClick()} />
+                <Header />
                 <AyahBox />
             </div>
         );
